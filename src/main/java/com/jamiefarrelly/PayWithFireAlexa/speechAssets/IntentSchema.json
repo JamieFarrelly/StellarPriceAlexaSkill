@@ -1,0 +1,10 @@
+{
+  "intents": [
+    {
+      "intent": "PayWithFireIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    }
+  ]
+}

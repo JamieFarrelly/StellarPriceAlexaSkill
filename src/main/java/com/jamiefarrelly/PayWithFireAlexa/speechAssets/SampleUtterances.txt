@@ -1,0 +1,4 @@
+PayWithFireIntent balance
+PayWithFireIntent check my balance
+PayWithFireIntent how much money do i have
+PayWithFireIntent check balance
