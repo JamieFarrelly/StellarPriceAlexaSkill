@@ -13,6 +13,10 @@ import com.amazon.speech.ui.PlainTextOutputSpeech;
 import com.amazon.speech.ui.Reprompt;
 import com.amazon.speech.ui.SimpleCard;
 
+/**
+ * 
+ * Based on https://github.com/amzn/alexa-skills-kit-java
+ */
 public class PayWithFireSpeechlet implements Speechlet {
 
     // PUBLIC ---------------------------------------------------------------------------------------------
