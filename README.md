@@ -6,7 +6,7 @@ Alexa Skill to check your business Pay with Fire account balances.
 Overview
 --------------------------
 Project that's based off [Amazon's sample projects](https://github.com/amzn/alexa-skills-kit-java) so that you can ask for the likes of
-"Alexa, ask Pay with Fire to check my balance" and get back how much money you've got in each of your Fire accounts.
+"Alexa, ask Pay with Fire to check my balance" and get back how much money you've got in each of your Fire accounts. See an example of it [here](https://twitter.com/Jamie_Farrelly/status/814134723085791232).
 
 Alexa will then read back the name of each account you have and how much money you have in each account.
 
