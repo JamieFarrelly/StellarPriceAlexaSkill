@@ -1,5 +1,7 @@
 package com.jamiefarrelly.PayWithFireAlexa;
 
+import java.util.List;
+
 import com.amazon.speech.slu.Intent;
 import com.amazon.speech.speechlet.IntentRequest;
 import com.amazon.speech.speechlet.LaunchRequest;
@@ -12,6 +14,7 @@ import com.amazon.speech.speechlet.SpeechletResponse;
 import com.amazon.speech.ui.PlainTextOutputSpeech;
 import com.amazon.speech.ui.Reprompt;
 import com.amazon.speech.ui.SimpleCard;
+import com.jamiefarrelly.PayWithFireAlexa.model.Account;
 
 /**
  * 
@@ -82,7 +85,22 @@ public class PayWithFireSpeechlet implements Speechlet {
      */
     private SpeechletResponse getBalanceResponse() {
         
-        String speechText = "Your balance is blah blah"; // TODO: api call
+        List<Account> fireAccounts = PayWithFireAPI.getAccounts();
+        
+        String speechText = "";
+        double amount;
+        String currencySymbol;
+        
+        for (int i = 0; i < fireAccounts.size(); i++) {
+            
+            Account fireAccount = fireAccounts.get(i);
+            
+            amount = fireAccount.getBalance() / 100.0;
+            currencySymbol = fireAccount.getCurrency().getCode().getCurrencyCode() == "EUR" ? "€" : "£"; // just two currencies at the moment
+            
+            speechText = speechText + " " + fireAccount.getName() + " has " + currencySymbol + amount
+                         + (i == (fireAccounts.size() - 1) ? "." : ","); // last account - full stop, we're finished.
+        }
 
         // Create the Simple card content.
         SimpleCard card = new SimpleCard();
@@ -103,7 +121,7 @@ public class PayWithFireSpeechlet implements Speechlet {
      */
     private SpeechletResponse getHelpResponse() {
         
-        String speechText = "You can say Pay with Fire check my balance to see what your balance is!";
+        String speechText = "You can say ask Pay with Fire to check my balance to see what your balance is!";
 
         // Create the Simple card content.
         SimpleCard card = new SimpleCard();
