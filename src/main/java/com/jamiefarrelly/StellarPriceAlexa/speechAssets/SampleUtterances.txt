@@ -1,0 +1,14 @@
+StellarPriceIntent for the price of a lumen
+StellarPriceIntent for the price of a stellar
+StellarPriceIntent for the price of lumens
+StellarPriceIntent for the price of stellar
+StellarPriceIntent how much stellar is
+StellarPriceIntent how much a lumen is
+StellarPriceIntent what is the price of stellar
+StellarPriceIntent what is the price of lumens
+StellarPriceIntent what's the price of stellar
+StellarPriceIntent what's the price of lumens
+StellarPriceIntent what is the price of a stellar
+StellarPriceIntent what is the price of a lumen
+StellarPriceIntent what's the price of a stellar
+StellarPriceIntent what's the price of a lumen

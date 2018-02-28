@@ -1,4 +1,4 @@
-package com.jamiefarrelly.PayWithFireAlexa;
+package com.jamiefarrelly.StellarPriceAlexa;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,7 +14,7 @@ import com.amazon.speech.speechlet.lambda.SpeechletRequestStreamHandler;
  * 
  * Based on https://github.com/amzn/alexa-skills-kit-java
  */
-public final class PayWithFireSpeechletRequestStreamHandler extends SpeechletRequestStreamHandler {
+public final class StellarPriceSpeechletRequestStreamHandler extends SpeechletRequestStreamHandler {
     
     private static final Set<String> supportedApplicationIds = new HashSet<String>();
     
@@ -26,7 +26,7 @@ public final class PayWithFireSpeechletRequestStreamHandler extends SpeechletReq
         supportedApplicationIds.add("amzn1.echo-sdk-ams.app.[unique-value-here]");
     }
 
-    public PayWithFireSpeechletRequestStreamHandler() {
-        super(new PayWithFireSpeechlet(), supportedApplicationIds);
+    public StellarPriceSpeechletRequestStreamHandler() {
+        super(new StellarPriceSpeechlet(), supportedApplicationIds);
     }
 }
