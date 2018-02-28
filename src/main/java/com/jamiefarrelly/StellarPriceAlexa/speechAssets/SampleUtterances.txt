@@ -12,3 +12,10 @@ StellarPriceIntent what is the price of a stellar
 StellarPriceIntent what is the price of a lumen
 StellarPriceIntent what's the price of a stellar
 StellarPriceIntent what's the price of a lumen
+StellarPriceIntent how much is stellar
+StellarPriceIntent how much is a stellar
+StellarPriceIntent how much is lumens
+StellarPriceIntent how much is a lumen
+StellarPriceIntent for the current price
+StellarPriceIntent for the price
+StellarPriceIntent how's stellar doing

@@ -107,7 +107,7 @@ public class StellarPriceSpeechlet implements Speechlet {
      */
     private SpeechletResponse getHelpResponse() {
         
-        String speechText = "You can say ask Stellar Price for the price of Stellar";
+        String speechText = "You can say ask Stellar Price how's Stellar doing";
 
         // Create the Simple card content.
         SimpleCard card = new SimpleCard();
