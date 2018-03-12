@@ -28,9 +28,17 @@ public class StellarPriceSpeechlet implements Speechlet {
         String intentName = (intent != null) ? intent.getName() : null;
         
         if ("StellarPriceIntent".equals(intentName)) {
+            
             return getStellarPrice();
         } else if ("AMAZON.HelpIntent".equals(intentName)) {
+            
             return getHelpResponse();
+        } else if ("AMAZON.StopIntent".equals(intentName)) {
+            
+            return getCancelOrStopResponse();
+        } else if ("AMAZON.CancelIntent".equals(intentName)) {
+            
+            return getCancelOrStopResponse();
         } else {
             throw new SpeechletException("Invalid Intent");
         }
@@ -52,6 +60,29 @@ public class StellarPriceSpeechlet implements Speechlet {
     }  
     
     // PRIVATE ---------------------------------------------------------------------------------------------
+    /**
+     * Creates a {@code SpeechletResponse} for the Stellar Price Checker intent.
+     *
+     * @return SpeechletResponse spoken and visual response for the given intent
+     */
+    private SpeechletResponse getStellarPrice() {
+        
+        CoinMarket market = CoinMarketCap.ticker("stellar").get();
+
+        String speechText = "The price of a Lumen is currently $" + market.getPriceUSD();
+
+        // Create the Simple card content.
+        SimpleCard card = new SimpleCard();
+        card.setTitle("StellarPrice");
+        card.setContent(speechText);
+
+        // Create the plain text output.
+        PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+        speech.setText(speechText);
+
+        return SpeechletResponse.newTellResponse(speech, card);
+    }
+    
     /**
      * Creates and returns a {@code SpeechletResponse} with a welcome message.
      *
@@ -78,29 +109,6 @@ public class StellarPriceSpeechlet implements Speechlet {
     }
     
     /**
-     * Creates a {@code SpeechletResponse} for the Stellar Price Checker intent.
-     *
-     * @return SpeechletResponse spoken and visual response for the given intent
-     */
-    private SpeechletResponse getStellarPrice() {
-        
-        CoinMarket market = CoinMarketCap.ticker("stellar").get();
-
-        String speechText = "The price of a Lumen is currently $" + market.getPriceUSD();
-
-        // Create the Simple card content.
-        SimpleCard card = new SimpleCard();
-        card.setTitle("StellarPrice");
-        card.setContent(speechText);
-
-        // Create the plain text output.
-        PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
-        speech.setText(speechText);
-
-        return SpeechletResponse.newTellResponse(speech, card);
-    }
-    
-    /**
      * Creates a {@code SpeechletResponse} for the help intent.
      *
      * @return SpeechletResponse spoken and visual response for the given intent
@@ -123,6 +131,19 @@ public class StellarPriceSpeechlet implements Speechlet {
         reprompt.setOutputSpeech(speech);
 
         return SpeechletResponse.newAskResponse(speech, reprompt, card);
+    }
+    
+    /**
+     * Says goodbye when you call the cancel or stop intent, it's required to get on to the Skill Store so we must handle it
+     * 
+     * @return SpeechletResponse
+     */
+    public SpeechletResponse getCancelOrStopResponse() {
+
+        PlainTextOutputSpeech outputSpeech = new PlainTextOutputSpeech();
+        outputSpeech.setText("Goodbye");
+
+        return SpeechletResponse.newTellResponse(outputSpeech);
     }
 
 }
